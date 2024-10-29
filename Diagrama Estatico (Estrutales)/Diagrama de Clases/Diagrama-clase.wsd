@@ -1,0 +1,49 @@
+@startuml
+class Usuario {
+    - usuario_id: int
+    - nombre: String
+    - correo: String
+    - contraseña: String
+    - rol_id: int
+    + registrarUsuario()
+    + iniciarSesion()
+}
+
+class Producto {
+    - producto_id: int
+    - nombre: String
+    - descripcion: String
+    - precio: float
+    - categoria: String
+    + verDetalleProducto()
+}
+
+class Inventario {
+    - inventario_id: int
+    - producto_id: int
+    - cantidad_disponible: int
+    + actualizarInventario()
+}
+
+class Factura {
+    - factura_id: int
+    - usuario_id: int
+    - fecha: Date
+    - total: float
+    + calcularTotal()
+}
+
+class DetalleFactura {
+    - detalle_id: int
+    - factura_id: int
+    - producto_id: int
+    - cantidad: int
+    - subtotal: float
+    + calcularSubtotal()
+}
+
+Usuario "1" --> "1..*" Factura
+Factura "1" --> "1..*" DetalleFactura
+DetalleFactura "1" --> "1" Producto
+Producto "1" --> "1" Inventario
+@enduml
