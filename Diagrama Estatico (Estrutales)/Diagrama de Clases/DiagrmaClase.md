@@ -1,5 +1,7 @@
 # Sistema de Carrito de Compras
-
+### integrantes
+- Yeferson Esmid Heredia Perdomo
+- Nicolas Obregoon Rojas
 ## Descripción General
 Este proyecto desarrolla una base de datos para un sistema de carrito de compras, manejando roles de **Administrador** y **Comprador**. Incluye funcionalidades como registro de usuarios, gestión de inventarios, y generación de facturas. La base de datos emplea las entidades **Usuario**, **Producto**, **Inventario**, **Factura** y **Detalle Factura**.
 
