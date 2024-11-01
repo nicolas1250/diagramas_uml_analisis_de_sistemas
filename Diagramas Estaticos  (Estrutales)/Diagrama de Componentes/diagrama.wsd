@@ -1,0 +1,15 @@
+@startuml
+component "Sistema Carrito de Compras" {
+    [Scripts DDL] --> [Base de Datos]
+    [Scripts DML] --> [Base de Datos]
+    [Diagrama de Clases] ..> [Documentación.md] : generado en
+    [Diagrama de Componentes] ..> [Documentación.md] : generado en
+}
+node "Base de Datos" {
+    [Tabla Usuario]
+    [Tabla Producto]
+    [Tabla Inventario]
+    [Tabla Factura]
+    [Tabla Detalle Factura]
+}
+@enduml

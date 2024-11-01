@@ -1,0 +1,20 @@
+@startuml
+
+participant Usuario as U
+participant Factura as F
+participant DetalleFactura as DF
+participant Producto as P
+participant Inventario as I
+
+U -> F : Crear factura
+F -> DF : Crear detalles de factura (uno por cada producto)
+DF -> P : Obtener información del producto
+P -> I : Actualizar cantidad en inventario
+
+U --> F : Confirmar compra
+F -> U : Confirmación de factura generada
+DF -> F : Totalizar monto
+I --> DF : Validar stock disponible
+DF --> I : Reducir stock
+
+@enduml

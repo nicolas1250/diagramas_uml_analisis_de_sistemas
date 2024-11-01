@@ -1,0 +1,15 @@
+@startuml  
+actor Comprador  
+participant "Sistema" as Sistema  
+participant "Inventario" as Inventario  
+participant "Factura" as Factura  
+participant "DetalleFactura" as DetalleFactura  
+
+Comprador -> Sistema : Iniciar sesión   
+Comprador -> Sistema : Seleccionar producto  
+Sistema -> Inventario : Consultar cantidad disponible  
+Inventario --> Sistema : Devolver cantidad disponible  
+Sistema -> Factura : Crear factura  
+Sistema -> DetalleFactura : Añadir detalle de factura  
+Sistema -> Inventario : Actualizar cantidad  
+@enduml
