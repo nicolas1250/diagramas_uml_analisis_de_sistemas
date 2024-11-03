@@ -1,0 +1,20 @@
+@startuml
+robust "Comprador" as Comprador
+robust "Carrito de Compras" as Carrito
+robust "Sistema de Pagos" as Pagos
+robust "Sistema de Facturación" as Facturacion
+robust "Sistema de Envíos" as Envios
+
+Comprador -> Carrito : Agregar productos al carrito
+Carrito -> Comprador : Confirmar productos agregados
+Comprador -> Carrito : Revisar y actualizar carrito
+Comprador -> Carrito : Proceder a pago
+Carrito -> Pagos : Enviar datos de compra para pago
+
+Pagos -> Carrito : Confirmación de pago exitoso
+Carrito -> Facturacion : Generar factura
+Facturacion -> Comprador : Enviar factura por correo
+Facturacion -> Envios : Notificar para iniciar envío
+Envios -> Comprador : Confirmación de envío y código de seguimiento
+
+@enduml

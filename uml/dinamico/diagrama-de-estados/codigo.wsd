@@ -1,0 +1,24 @@
+@startuml
+[*] --> CarritoIniciado
+
+CarritoIniciado : El carrito está vacío
+CarritoIniciado --> CarritoEnProceso : Agregar primer producto
+CarritoEnProceso : Hay productos en el carrito
+CarritoEnProceso --> CarritoIniciado : Eliminar todos los productos
+CarritoEnProceso --> RevisandoCarrito : Revisar productos en el carrito
+
+RevisandoCarrito --> CarritoEnProceso : Agregar o eliminar productos
+RevisandoCarrito --> RealizarPedido : Confirmar y proceder a pagar
+
+RealizarPedido : Listo para el pago
+RealizarPedido --> PagoPendiente : Iniciar pago
+PagoPendiente : Esperando pago
+PagoPendiente --> PagoExitoso : Pago completado
+PagoExitoso : Pedido finalizado
+
+PagoPendiente --> PedidoCancelado : Cancelar pedido
+PedidoCancelado : Pedido cancelado por el usuario
+
+PagoExitoso --> [*]
+PedidoCancelado --> [*]
+@enduml
