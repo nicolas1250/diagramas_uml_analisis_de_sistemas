@@ -1,0 +1,81 @@
+# Diagrama de Perfil para el Sistema de Carrito de Compras
+
+## Diagrama de Perfil
+
+```plantuml
+@startuml
+' Definición del perfil del sistema
+package "Perfil del Carrito de Compras" <<profile>> {
+    ' Estereotipos de roles
+    stereotype "Administrador" <<role>>
+    stereotype "Comprador" <<role>>
+
+    ' Estereotipos para componentes del sistema
+    stereotype "Servicio" <<component>>
+    stereotype "Entidad" <<class>>
+    stereotype "Controlador" <<component>>
+    stereotype "API" <<interface>>
+
+    ' Definición de estereotipos específicos del sistema
+    class Usuario <<Entidad, Comprador>>
+    class Rol <<Entidad, Administrador>>
+    class Producto <<Entidad>>
+    class Inventario <<Entidad>>
+    class Factura <<Entidad>>
+    class Detalle_Factura <<Entidad>>
+    interface AutenticacionAPI <<API>>
+    interface CarritoAPI <<API>>
+    interface FacturacionAPI <<API>>
+}
+
+' Aplicación de estereotipos a clases y componentes del sistema
+Usuario : Rol de Comprador
+Rol : Rol de Administrador
+
+AutenticacionAPI : Autentica a los usuarios y asigna roles
+CarritoAPI : Gestiona productos en el carrito
+FacturacionAPI : Procesa las transacciones y emite facturas
+
+@enduml
+# Diagrama de Perfil para el Sistema de Carrito de Compras
+
+## Diagrama de Perfil
+
+```plantuml
+@startuml
+' Definición del perfil del sistema
+package "Perfil del Carrito de Compras" <<profile>> {
+    ' Estereotipos de roles
+    stereotype "Administrador" <<role>>
+    stereotype "Comprador" <<role>>
+
+    ' Estereotipos para componentes del sistema
+    stereotype "Servicio" <<component>>
+    stereotype "Entidad" <<class>>
+    stereotype "Controlador" <<component>>
+    stereotype "API" <<interface>>
+
+    ' Definición de estereotipos específicos del sistema
+    class Usuario <<Entidad, Comprador>>
+    class Rol <<Entidad, Administrador>>
+    class Producto <<Entidad>>
+    class Inventario <<Entidad>>
+    class Factura <<Entidad>>
+    class Detalle_Factura <<Entidad>>
+    interface AutenticacionAPI <<API>>
+    interface CarritoAPI <<API>>
+    interface FacturacionAPI <<API>>
+}
+
+' Aplicación de estereotipos a clases y componentes del sistema
+Usuario : Rol de Comprador
+Rol : Rol de Administrador
+
+AutenticacionAPI : Autentica a los usuarios y asigna roles
+CarritoAPI : Gestiona productos en el carrito
+FacturacionAPI : Procesa las transacciones y emite facturas
+
+@enduml
+```
+## Imagen de referncia
+![Diagrama de Perfil](DiagramaPerfil.png)

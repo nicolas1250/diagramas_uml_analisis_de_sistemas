@@ -1,0 +1,29 @@
+@startuml
+node "Cliente (Navegador)" {
+  [Interfaz Angular]
+}
+
+node "Servidor Web" {
+  [API de Autenticación] as AuthAPI
+  [API de Carrito de Compras] as CartAPI
+  [API de Facturación] as BillingAPI
+
+  AuthAPI --> CartAPI : "Envía información de usuario"
+  CartAPI --> BillingAPI : "Envía datos del carrito"
+
+  [Interfaz Angular] --> AuthAPI : "Autenticación de usuarios"
+  [Interfaz Angular] --> CartAPI : "Operaciones CRUD del carrito"
+  [Interfaz Angular] --> BillingAPI : "Consulta de facturas"
+
+  CartAPI --> "Servidor de Base de Datos" : "Consultas SQL (JOINs)"
+  BillingAPI --> "Servidor de Base de Datos" : "Consultas SQL (JOINs)"
+}
+
+node "Servidor de Base de Datos" {
+  [MySQL]
+}
+
+AuthAPI --> [MySQL] : "Consulta de autenticación"
+CartAPI --> [MySQL] : "Consulta y actualización de inventario"
+BillingAPI --> [MySQL] : "Generación y almacenamiento de facturas"
+@enduml
